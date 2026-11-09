@@ -1,0 +1,97 @@
+:root[data-theme=dark]{--bg:#0B1020;--panel:#121A2E;--side:#0E1428;--line:#223052;--text:#E8ECF8;--muted:#A3AFCB;--gold:#E5B567;--goldtext:#E5B567;--on:#0B1020;--ok:#5EEAD4;--hi:#1B2644;--bad:#FCA5A5}
+:root[data-theme=light]{--bg:#F6F3EC;--panel:#FFFFFF;--side:#FBF8F1;--line:#E4DCCB;--text:#1B1A17;--muted:#5F5A50;--gold:#E5B567;--goldtext:#8A5A00;--on:#1B1A17;--ok:#0F766E;--hi:#EFE8D6;--bad:#B91C1C}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+h1,h2,h3,.logo{font-family:Fraunces,Georgia,serif;margin:0}
+h1{font-size:30px}h2{font-size:22px}h3{font-size:17px;font-family:Inter,sans-serif;font-weight:600}
+a{color:inherit}
+.muted{color:var(--muted)}.small{font-size:13px}.gold{color:var(--goldtext)}.ok{color:var(--ok)}.bad{color:var(--bad)}
+.center{min-height:100vh;display:flex;align-items:center;justify-content:center}
+
+/* Layout (desktop) */
+.shell{display:flex;min-height:100vh;max-width:1920px;margin:0 auto}
+.side{width:230px;background:var(--side);border-right:1px solid var(--line);padding:24px 16px;display:flex;flex-direction:column;gap:6px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto}
+.drawer-head{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:24px;font-weight:700;color:var(--goldtext);padding:0 8px 18px}
+.nav{padding:10px 12px;border-radius:10px;text-decoration:none;font-size:14px}
+.nav.on{background:var(--hi)}
+.grow{flex:1}
+.main{flex:1;padding:32px;display:flex;flex-direction:column;gap:20px;min-width:0;width:100%;max-width:1400px;margin-inline:auto}
+
+/* Mobile-only parts are hidden on desktop */
+.topbar,.backdrop,.close{display:none}
+.menu-btn{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;align-items:center;justify-content:center;padding:0}
+
+.btn{background:var(--gold);color:var(--on);border:0;border-radius:12px;font:600 15px Inter,sans-serif;min-height:44px;padding:0 20px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line);font-weight:500}
+.btn:disabled{opacity:.6;cursor:wait}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+.hero{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.cols{display:grid;grid-template-columns:1fr 330px;gap:16px;align-items:start}
+.input{width:100%;min-height:46px;background:var(--side);border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--text);font:15px Inter,sans-serif}
+textarea.input{min-height:110px;resize:vertical}
+label.f{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--muted)}
+form.stack,.stack{display:flex;flex-direction:column;gap:14px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.pill{border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600;background:var(--hi);white-space:nowrap;flex-shrink:0;align-self:flex-start;display:inline-block;line-height:1.4}
+.step>span:first-child{min-width:0;overflow-wrap:anywhere}
+.bar{height:7px;background:var(--line);border-radius:4px}.bar>i{display:block;height:7px;background:var(--gold);border-radius:4px}
+table{width:100%;border-collapse:collapse;font-size:14px}th{text-align:left;color:var(--muted);font-weight:500;padding:8px 0}td{padding:11px 0;border-top:1px solid var(--line)}
+.msg{padding:10px 14px;border-radius:14px;font-size:14px;max-width:92%;white-space:pre-wrap}
+.msg.u{align-self:flex-end;background:var(--hi)}.msg.a{background:var(--side);border:1px solid var(--line)}
+.err{color:var(--bad);font-size:14px}
+.step{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:14px}
+.opt{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.opt input,.tg input{accent-color:var(--gold);width:18px;height:18px}
+.tg{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.land{max-width:1200px;margin:0 auto;padding:28px 40px 56px;display:flex;flex-direction:column;gap:64px}
+.land nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.big{font-size:clamp(38px,6vw,64px);line-height:1.05}
+.authwrap{min-height:100vh;display:flex;flex-wrap:wrap}
+.authwrap>section{flex:1;min-width:340px;padding:56px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.authwrap>section:first-child{background:var(--side)}
+.authwrap form{max-width:420px}
+
+/* ---------- Responsive ---------- */
+
+/* Very big screens */
+@media(min-width:2200px){body{font-size:17px}}
+
+/* Laptops */
+@media(max-width:1100px){
+  .side{width:200px}
+  .main{padding:24px}
+  .cols{grid-template-columns:1fr 290px}
+}
+
+/* Tablets and phones: sidebar becomes a slide-in drawer with a hamburger button */
+@media(max-width:900px){
+  .shell{flex-direction:column}
+  .topbar{display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:20;padding:10px 12px;background:var(--side);border-bottom:1px solid var(--line)}
+  .topbar .logo{padding:0}
+  .menu-btn{display:flex}
+  .close{display:flex}
+  .side{position:fixed;top:0;left:0;bottom:0;z-index:40;width:270px;max-width:84vw;height:100vh;transform:translateX(-100%);visibility:hidden;transition:transform .25s ease,visibility .25s}
+  .side.open{transform:translateX(0);visibility:visible}
+  .backdrop{display:block;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:30}
+  .main{padding:20px}
+  .cols{grid-template-columns:1fr}
+}
+
+/* Phones */
+@media(max-width:600px){
+  h1{font-size:24px}
+  h2{font-size:20px}
+  .main{padding:16px;gap:16px}
+  .land{padding:20px 16px 40px;gap:40px}
+  .authwrap{flex-direction:column}
+  .authwrap>section{flex:none;min-width:0;padding:28px 20px}
+  .input{font-size:16px}
+  .card{padding:16px}
+  .btn{min-height:46px}
+  .hero .btn{width:100%}
+  .grid4{grid-template-columns:1fr 1fr}
+}
